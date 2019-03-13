@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import static java.awt.FlowLayout.CENTER;
+
 public class Main extends JFrame implements ActionListener {
 
     private JButton button;
@@ -20,9 +22,10 @@ public class Main extends JFrame implements ActionListener {
         button.addActionListener(this);
 
         panel = new JPanel();
+        panel.setLayout(new BorderLayout(CENTER, CENTER));
+
         frame.add(panel);
         panel.add(button);
-
     }
 
     public void actionPerformed(ActionEvent e){
@@ -33,6 +36,7 @@ public class Main extends JFrame implements ActionListener {
         int z=random.nextInt(700-(x>y?x:y))+50;  //z zakresu 50:750 - wieksza z dl/szer przycisku
         button.setBounds(frame.getWidth()-x-z, frame.getHeight()-y-z, x, y);
         panel.setBackground(colors[z%(colors.length)]);
+        button.setBackground(colors[x%(colors.length)]);
     }
 
     public static void main(String[] args){
