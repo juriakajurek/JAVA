@@ -1,0 +1,22 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="tabela_kursow" type="tabela_kursowType"/>
+  <xs:complexType name="pozycjaType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="nazwa_waluty"/>
+      <xs:element type="xs:byte" name="przelicznik"/>
+      <xs:element type="xs:string" name="kod_waluty"/>
+      <xs:element type="xs:string" name="kurs_kupna"/>
+      <xs:element type="xs:string" name="kurs_sprzedazy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tabela_kursowType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="numer_tabeli"/>
+      <xs:element type="xs:date" name="data_notowania"/>
+      <xs:element type="xs:date" name="data_publikacji"/>
+      <xs:element type="pozycjaType" name="pozycja" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute type="xs:string" name="typ"/>
+    <xs:attribute type="xs:string" name="uid"/>
+  </xs:complexType>
+</xs:schema>
