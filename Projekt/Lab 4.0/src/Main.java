@@ -28,7 +28,6 @@ import java.util.Vector;
 import java.util.List;
 
 import java.util.Timer;
-import java.util.TimerTask;
 
 public class Main extends JFrame {
 
@@ -46,20 +45,20 @@ public class Main extends JFrame {
 
 
     public Main() {
+        timer.scheduleAtFixedRate(task, 0, 5000);
+        System.out.println("timer ruszył ");
         initComponents();
         frame.setVisible(true);
+
         initDataBindings();
 
-        timer.scheduleAtFixedRate(task, 0, 5000);
 
-        System.out.println("timer ruszył ");
     }
 
     Timer timer = new Timer();
     TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            System.out.println("uruchomilem ");
             try {
                 Main.dload();
             }
@@ -114,68 +113,6 @@ public class Main extends JFrame {
         return true;
     }
 
-
-
-    public void showHistory() {
-        coursesHistory.setText("");
-        List<Currency> waluty = B.selectCurriences();
-        for(Currency c: waluty) {
-            String[] parts = c.toString().split(" - ");
-            if (parts[1].equals(showCourse_comboBox.getSelectedItem().toString())) {
-                coursesHistory.append("\n"+parts[1]+" - "+parts[3]+" - "+parts[2]);
-            }
-        }
-    }
-
-    public String calculate () {
-        if (amoundIn_textField.getText().equals("") || !isNumeric(amoundIn_textField.getText()) ){
-            amoundOut_textField.setText("");
-            return ("");
-        }
-        else {
-
-            int choosedIn = currencyIn_comboBox.getSelectedIndex();
-            int choosedOut = currencyOut_comboBox.getSelectedIndex();
-
-            Double res = Double.valueOf(amoundIn_textField.getText()) / Double.valueOf(przeliczniki.get(choosedIn)) * Double.parseDouble(kursyKupna.get(choosedIn).replaceAll(",", ".")); //z wejscioowej na zlotowki
-            res = res * Double.valueOf(przeliczniki.get(choosedOut)) / Double.valueOf(kursySprzedazy.get(choosedOut).replaceAll(",", ".")); // ze zlotowek na wyjsciowa
-            {
-                res *= 100;                             //
-                res = Double.valueOf(Math.round(res));  // zaokraglanie
-                res /= 100;                             //
-                amoundOut_textField.setText(String.valueOf(res));
-            }
-            //System.out.println(res);
-            return (String.valueOf(res));
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static void dload() throws Exception {
         String url = "https://www.nbp.pl/kursy/xml/c071z190410.xml";
         URL obj = new URL(url);
@@ -219,9 +156,119 @@ public class Main extends JFrame {
         List<Currency> waluty = B.selectCurriences();
 
 
-        for(Currency c: waluty)
-            System.out.println(c);
+        //System.out.println("Do bazy danych został dodany nowy wpis");
     }
+
+
+    public void showHistory() {
+        coursesHistory.setText("");
+        List<Currency> waluty = B.selectCurriences();
+        for(Currency c: waluty) {
+            String[] parts = c.toString().split(" - "); //0 - id, 1 - symbol, 2-data  //aktualnego wpisu
+
+            if (historyCheckBox.isSelected()){
+                if (parts[1].equals(showCourse_comboBox.getSelectedItem().toString())) {  //jesli symbol sie zgadzaz
+                    if (historyFromDayTextField.getText()!=""){ // jesli jest cos wpisane w pola od do
+
+
+                        String[] dateParts = parts[2].split("-");  //0 - dzień, 1 - miesiąc, 2-rok  // daty z bazy
+
+                        String[] input1Parts = historyFromDayTextField.getText().split("-"); //wprowadzona data
+                        String[] input2Parts = historyToDayTextField.getText().split("-"); //wprowadzona data
+
+
+
+
+                        coursesHistory.append("z rownosci" + Integer.valueOf(dateParts[0]));
+                        coursesHistory.append("z rownosci" +Integer.valueOf(input1Parts[0]));
+
+
+                        if (Integer.valueOf(dateParts[0]) != Integer.valueOf(input1Parts[0])) {
+
+                            coursesHistory.append("z OD" + Integer.valueOf(dateParts[0]));
+                            coursesHistory.append("z DO" +Integer.valueOf(input1Parts[0]));
+
+                            if (Integer.valueOf(dateParts[0]) > Integer.valueOf(input1Parts[0]) ||
+                                    Integer.valueOf(dateParts[0]) < Integer.valueOf(input2Parts[0])
+
+                            ) {
+                                coursesHistory.append("\n"+parts[1]+" - "+parts[3]+" - "+parts[2]);
+
+                                coursesHistory.append("z wiekszosci");
+
+                            }
+
+
+
+                        }else{
+
+                            coursesHistory.setText("");
+                        }
+
+
+
+
+
+
+                        if (dateParts[0].equals(input1Parts[0]) ||
+                                dateParts[1].equals(input1Parts[1]) ||
+                                dateParts[2].equals(input1Parts[2]) ){
+
+                            //coursesHistory.append("\n"+parts[1]+" - "+parts[3]+" - "+parts[2]);
+
+                            System.out.println("CHUJ");
+                        }
+                        else {
+                            coursesHistory.setText("");
+                        }
+
+                        //System.out.println(dateParts[1].toString());
+                        //(historyFromDayTextField.getText().getBytes())[0]
+
+
+
+                    }
+
+
+
+
+
+                }
+
+            }
+            else {
+                if (parts[1].equals(showCourse_comboBox.getSelectedItem().toString())) {
+                    coursesHistory.append("\n"+parts[1]+" - "+parts[3]+" - "+parts[2]);
+                }
+            }
+
+        }
+    }
+
+    public String calculate () {
+        if (amoundIn_textField.getText().equals("") || !isNumeric(amoundIn_textField.getText()) ){
+            amoundOut_textField.setText("");
+            return ("");
+        }
+        else {
+
+            int choosedIn = currencyIn_comboBox.getSelectedIndex();
+            int choosedOut = currencyOut_comboBox.getSelectedIndex();
+
+            Double res = Double.valueOf(amoundIn_textField.getText()) / Double.valueOf(przeliczniki.get(choosedIn)) * Double.parseDouble(kursyKupna.get(choosedIn).replaceAll(",", ".")); //z wejscioowej na zlotowki
+            res = res * Double.valueOf(przeliczniki.get(choosedOut)) / Double.valueOf(kursySprzedazy.get(choosedOut).replaceAll(",", ".")); // ze zlotowek na wyjsciowa
+            {
+                res *= 100;                             //
+                res = Double.valueOf(Math.round(res));  // zaokraglanie
+                res /= 100;                             //
+                amoundOut_textField.setText(String.valueOf(res));
+            }
+            //System.out.println(res);
+            return (String.valueOf(res));
+        }
+    }
+
+
 
     protected void initDataBindings() {
         BeanProperty<JTextField, String> jTextFieldBeanProperty = BeanProperty.create("text");
@@ -258,11 +305,20 @@ public class Main extends JFrame {
     private JLabel amoundOut_label;
     private JTextField amoundIn_textField;
     private JTextField amoundOut_textField;
+    private JPanel datePanel;
+
     private JTextArea coursesHistory;
+    private JTextField historyFromDayTextField;
+    private JTextField historyToDayTextField;
+    private JLabel historyFromDayLabel;
+    private JLabel historyToDayLabel;
+    private JLabel historyLabel;
+    private JCheckBox historyCheckBox;
 
     public void initComponents(){
         frame = new JFrame();
         panel = new JPanel();
+        datePanel = new JPanel();
         currencyIn_label = new JLabel();
         currencyOut_label = new JLabel();
         showCourse_label = new JLabel();
@@ -275,7 +331,14 @@ public class Main extends JFrame {
         amoundOut_label = new JLabel();
         amoundIn_textField = new JTextField();
         amoundOut_textField = new JTextField();
-        coursesHistory = new JTextArea(20, 1);
+        historyFromDayTextField = new JTextField();
+        historyToDayTextField = new JTextField();
+        historyFromDayLabel = new JLabel();
+        historyToDayLabel = new JLabel();
+        historyLabel = new JLabel();
+        historyCheckBox = new JCheckBox("Filtruj wg. dat");
+
+        coursesHistory = new JTextArea(40, 1);
 
         frame.setSize(600, 320);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();  // wyswietli sie
@@ -292,6 +355,7 @@ public class Main extends JFrame {
                         "[fill]",
                 // rows
                 "[]" +
+                        "[]" +
                         "[]" +
                         "[]" +
                         "[]" +
@@ -366,21 +430,61 @@ public class Main extends JFrame {
 
         panel.add(separator2, "cell 0 6 2 1");
 
-
+        datePanel.setLayout(new GridLayout(1, 5));
         showCourse_label.setText("Wybierz symbol waluty, której historię kursów chcesz zobaczyć:");
         showCourse_label.setHorizontalAlignment(SwingConstants.CENTER);
         showCourse_label.setFont(currencyIn_label.getFont().deriveFont(currencyIn_label.getFont().getSize() + 2f));
         panel.add(showCourse_label, "cell 0 7 2 1");
 
-
         panel.add(showCourse_comboBox, "cell 0 8 2 1");
+
+        historyFromDayLabel.setText("Od dnia:");
+
+        historyToDayLabel.setText("Do dnia:");
+        historyFromDayLabel.setVisible(false);
+        historyFromDayTextField.setVisible(false);
+        historyToDayLabel.setVisible(false);
+        historyToDayTextField.setVisible(false);
+        //historyFromDayLabel.setHorizontalAlignment(1);
+
+        historyCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (historyCheckBox.isSelected()) {
+                    historyFromDayLabel.setVisible(true);
+                    historyFromDayTextField.setVisible(true);
+                    historyToDayLabel.setVisible(true);
+                    historyToDayTextField.setVisible(true);
+                }
+                else{
+                    historyFromDayLabel.setVisible(false);
+                    historyFromDayTextField.setVisible(false);
+                    historyToDayLabel.setVisible(false);
+                    historyToDayTextField.setVisible(false);
+                }
+            }
+        });
+
+
+
+
+
+
+        datePanel.add(historyFromDayLabel, 0);
+        datePanel.add(historyFromDayTextField, 1);
+        datePanel.add(historyToDayLabel, 2);
+        datePanel.add(historyToDayTextField, 3);
+        datePanel.add(historyCheckBox, 4, 4);
+
+
+        panel.add(datePanel, "cell 0 9 2 1");
 
 
         coursesHistory.setEditable(false);
         JScrollPane scroll = new JScrollPane(coursesHistory);
         scroll.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-        panel.add(scroll, "cell 0 9 2 1");
+        panel.add(scroll, "cell 0 10 2 1");
 
     }
 
