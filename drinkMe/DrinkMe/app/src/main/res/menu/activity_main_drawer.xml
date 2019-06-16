@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@android:drawable/ic_lock_idle_lock"
+            android:title="Zaloguj się" />
+        <item
+            android:id="@+id/nav_register"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="Zarejestruj się" />
+        <item
+            android:id="@+id/nav_search_products"
+            android:icon="@android:drawable/ic_search_category_default"
+            android:title="Wyszukaj produkty" />
+        <item
+            android:id="@+id/nav_cart"
+            android:icon="@mipmap/cart"
+            android:title="Koszyk" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@android:drawable/sym_action_email"
+            android:title="Kontakt" />
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="About" />
+    </group>
+
+</menu>
