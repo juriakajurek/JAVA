@@ -84,6 +84,7 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.drinkme.ProductList" />
 
         <provider
             android:name="com.android.tools.ir.server.InstantRunContentProvider"

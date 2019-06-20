@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import static com.example.drinkme.SearchProductsActivity.rodzaj;
 import static com.example.drinkme.SearchProductsActivity.search;
 
 
@@ -48,6 +48,7 @@ public class TestAdapter {
             mDbHelper.openDataBase();
             mDbHelper.close();
             mDb = mDbHelper.getReadableDatabase();
+            mDb = mDbHelper.getWritableDatabase();
         }
         catch (SQLException mSQLException)
         {
@@ -64,37 +65,19 @@ public class TestAdapter {
 
     public Cursor getTestData()
     {
-        try
-        {
             String sql ="SELECT * FROM Produkt";
-
             Cursor mCur = mDb.rawQuery(sql, null);
-            if (mCur!=null)
-            {
-                mCur.moveToNext();
-            }
             return mCur;
-        }
-        catch (SQLException mSQLException)
-        {
-            Log.e(TAG, "getTestData >>"+ mSQLException.toString());
-            throw mSQLException;
-        }
     }
 
     public Cursor getProducts(){
-        try {
             Cursor mCur = mDb.rawQuery("SELECT * FROM Produkt WHERE Nazwa='"+search+"'",null);
-            if (mCur!=null)
-            {
-                mCur.moveToNext();
-            }
             return mCur;
-        }
-        catch (SQLException mSQLException)
-        {
-            Log.e(TAG, "getTestData >>"+ mSQLException.toString());
-            throw mSQLException;
-        }
+
+    }
+
+    public void updateLiczbaButelek (int poprawiona, int id) {
+        String query = "UPDATE Produkt SET Liczba_butelek = "+poprawiona+" WHERE Produkt_ID = "+id;
+        mDb.execSQL(query);
     }
 }

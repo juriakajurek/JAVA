@@ -11,14 +11,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Switch;
+import android.widget.Toast;
 
 public class SearchProductsActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static String search = "";
     EditText txtSearch;
+    Switch switchGat;
+    public static String rodzaj ="Napój";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,21 @@ public class SearchProductsActivity extends AppCompatActivity
         ImageButton searchProductsButton = (ImageButton) findViewById(R.id.searchProductsButton);
 
         final EditText txtSearch =(EditText)findViewById(R.id.txtSearch);
+        Switch switchGat = (Switch)findViewById(R.id.switchGat);
+
+        switchGat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true) {
+                    rodzaj = "Alkohol";
+                    Toast.makeText(SearchProductsActivity.this,"Wybrano Alkohole", Toast.LENGTH_SHORT).show();
+                }
+                if(isChecked == false) {
+                    rodzaj = "Napój";
+                    Toast.makeText(SearchProductsActivity.this,"Wybrano Napoje", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         setSupportActionBar(toolbar);
 
@@ -40,15 +60,15 @@ public class SearchProductsActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        final Intent productViewIntent = new Intent(this,
-                ProductViewActivity.class);
+        final Intent productListIntent = new Intent(this,
+                ProductList.class);
 
         searchProductsButton.setOnClickListener(new View.OnClickListener() {
             @Override
 
             public void onClick(View view) {
                 search = txtSearch.getText().toString();
-                startActivity(productViewIntent);
+                startActivity(productListIntent);
             }
         });
 

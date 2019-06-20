@@ -1162,6 +1162,7 @@ id left
 id line1
 id line3
 id listMode
+id listProducts
 id list_item
 id loginButton
 id loginButton2
@@ -1255,7 +1256,7 @@ id submenuarrow
 id submit_area
 id surnameEditText
 id surnameTextView
-id switch1
+id switchGat
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -1293,6 +1294,11 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id txtCena
+id txtId
+id txtLiczba
+id txtNazwa
+id txtOpis
 id txtSearch
 id uniform
 id unlabeled
@@ -1388,6 +1394,7 @@ layout design_navigation_item_subheader
 layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
+layout list_adapter
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout nav_header_main
@@ -1401,6 +1408,7 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout viewcontents_layout
 menu activity_main_drawer
 menu main
 mipmap cart

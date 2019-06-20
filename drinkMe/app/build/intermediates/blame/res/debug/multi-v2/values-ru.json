@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\krzys\\Desktop\\DrinkMe\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ru\\values-ru.xml",
+            "outputFile": "C:\\Users\\krzys\\Desktop\\drinkMe\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ru\\values-ru.xml",
             "map": [
                 {
                     "source": "C:\\Users\\krzys\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\ded385c2335320fdcc8bc8197e1d76d1\\res\\values-ru\\values-ru.xml",

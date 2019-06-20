@@ -33,7 +33,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="8dp"
             android:text="Alkohole"
-            app:layout_constraintStart_toEndOf="@+id/switch1"
+            app:layout_constraintStart_toEndOf="@+id/switchGat"
             app:layout_constraintTop_toBottomOf="@+id/txtSearch" />
 
         <TextView
@@ -80,7 +80,7 @@
             android:text="Filtry:"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switch1" />
+            app:layout_constraintTop_toBottomOf="@+id/switchGat" />
 
         <CheckBox
             android:id="@+id/checkBox3"
@@ -113,7 +113,7 @@
             app:layout_constraintTop_toBottomOf="@+id/checkBox6" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/switchGat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -132,7 +132,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="4dp"
             android:text="Napoje"
-            app:layout_constraintEnd_toStartOf="@+id/switch1"
+            app:layout_constraintEnd_toStartOf="@+id/switchGat"
             app:layout_constraintTop_toBottomOf="@+id/txtSearch" />
 
     </android.support.constraint.ConstraintLayout>

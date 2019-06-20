@@ -41,7 +41,7 @@ public class AboutActivity extends AppCompatActivity
         mDbHelper.createDatabase();
         mDbHelper.open();
 
-        Cursor testdata = mDbHelper.getProducts();
+        Cursor testdata = mDbHelper.getTestData();
 
         StringBuffer buffer = new StringBuffer();
         while (testdata.moveToNext()) {
