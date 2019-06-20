@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static com.example.drinkme.FourColumn_adapter.idproduktu;
+import static com.example.drinkme.FourColumn_adapter.iloscproduktu;
 
 public class ProductList extends AppCompatActivity {
 
@@ -30,6 +31,8 @@ public class ProductList extends AppCompatActivity {
     Product product;
     static String str_idproduktu = "";
     static Integer int_idproduktu =0;
+    static String str_iloscproduktu="";
+    static Integer int_iloscproduktu =0;
     static Integer ilosc = 0;
     static Integer wybrany = 0;
 
@@ -66,14 +69,23 @@ public class ProductList extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                 //   position = wybrany;
-                 //   str_idproduktu =idproduktu[position];
+                    str_idproduktu = (idproduktu.get(position));
+                    int_idproduktu = Integer.parseInt(str_idproduktu);
+
+                    str_iloscproduktu = (iloscproduktu.get(position));
+                    int_iloscproduktu = Integer.parseInt(str_iloscproduktu);
+
                   //  int_idproduktu = Integer.parseInt(str_idproduktu);
-                    mDbHelper.updateLiczbaButelek(499,int_idproduktu);
+                    //mDbHelper.updateLiczbaButelek(int_iloscproduktu-1,int_idproduktu);
                     Toast.makeText(ProductList.this, "Wybrane id: "+str_idproduktu,Toast.LENGTH_SHORT).show();
+                    openProductView();
                 }
             });
                 }
+            }
+            public void openProductView () {
+                Intent view = new Intent(this, ProductViewActivity.class);
+                startActivity(view);
             }
         }
 

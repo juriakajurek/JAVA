@@ -15,7 +15,8 @@ import java.util.ArrayList;
 public class FourColumn_adapter extends ArrayAdapter<Product> {
     private LayoutInflater mInflater;
     private ArrayList<Product> products;
-    public static String[] idproduktu = new String[] {};
+    public static ArrayList<String> idproduktu = new ArrayList<String>();
+    public static ArrayList<String> iloscproduktu = new ArrayList<String>();
     private int mViewResourceId;
 
 
@@ -38,7 +39,7 @@ public class FourColumn_adapter extends ArrayAdapter<Product> {
             TextView txtLiczba = (TextView)convertView.findViewById(R.id.txtLiczba);
             if(txtId != null) {
                 txtId.setText(product.getIdNum());
-               // idproduktu[position] = (txtId.getText().toString());
+                idproduktu.add(product.getIdNum());
             }
             if (txtNazwa != null) {
                 txtNazwa.setText((product.getNazwa()));
@@ -54,6 +55,7 @@ public class FourColumn_adapter extends ArrayAdapter<Product> {
 
             if (txtLiczba != null) {
                 txtLiczba.setText((product.getLiczba()));
+                iloscproduktu.add(product.getLiczba());
             }
 
         }
