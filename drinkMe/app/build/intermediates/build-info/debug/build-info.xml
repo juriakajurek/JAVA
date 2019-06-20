@@ -5,41 +5,46 @@
     build-mode="COLD"
     density="420dpi"
     format="10"
-    ir-eligibility="METHOD_ADDED"
     plugin-version="3.3.2"
-    timestamp="1561069635335"
+    timestamp="1561071197403"
     token="2057735676057077464"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="566" />
+        duration="0" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="39" />
+        duration="0" />
     <task
         name="verifier"
-        duration="6" />
+        duration="0" />
 
     <artifact
         location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
         type="SPLIT" />
+    <artifact
+        location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1561068326557"
+        timestamp="1561070358086"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
-            type="SPLIT" />
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
         <artifact
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
@@ -48,10 +53,10 @@
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
@@ -60,7 +65,7 @@
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
@@ -68,18 +73,35 @@
         <artifact
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
-        <artifact
-            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
-            type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
-        ir-eligibility="METHOD_ADDED"
-        timestamp="1561069635335"
+        ir-eligibility="R_CLASS_CHANGE"
+        timestamp="1561070897120"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\resources\instant-run\debug\resources-debug.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            type="SPLIT" />
+    </build>
+    <build
+        build-mode="COLD"
+        timestamp="1561071197403"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
+        <artifact
+            location="C:\Users\krzys\Desktop\drinkMe\app\build\intermediates\instant-run-apk\debug\app-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

@@ -34,7 +34,6 @@ public class FourColumn_adapter extends ArrayAdapter<Product> {
         if(product != null) {
             TextView txtId = (TextView) convertView.findViewById(R.id.txtId);
             TextView txtNazwa = (TextView) convertView.findViewById(R.id.txtNazwa);
-            TextView txtOpis = (TextView) convertView.findViewById(R.id.txtOpis);
             TextView txtCena = (TextView) convertView.findViewById(R.id.txtCena);
             TextView txtLiczba = (TextView)convertView.findViewById(R.id.txtLiczba);
             if(txtId != null) {
@@ -43,10 +42,6 @@ public class FourColumn_adapter extends ArrayAdapter<Product> {
             }
             if (txtNazwa != null) {
                 txtNazwa.setText((product.getNazwa()));
-            }
-
-            if (txtOpis != null) {
-                txtOpis.setText((product.getOpis()));
             }
 
             if (txtCena != null) {

@@ -11,34 +11,28 @@
         android:id="@+id/txtId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="20"
+        android:layout_weight="25"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/txtNazwa"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="20"
+        android:layout_weight="25"
         android:gravity="center"/>
 
-    <TextView
-        android:id="@+id/txtOpis"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="20"
-        android:gravity="center"/>
 
     <TextView
         android:id="@+id/txtCena"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="20"
+        android:layout_weight="25"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/txtLiczba"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="20"
+        android:layout_weight="25"
         android:gravity="center"/>
 </LinearLayout>

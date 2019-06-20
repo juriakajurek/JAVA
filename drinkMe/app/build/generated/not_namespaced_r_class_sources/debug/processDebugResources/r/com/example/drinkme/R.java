@@ -5385,17 +5385,16 @@ public final class R {
     public static final int txtId=0x7f080105;
     public static final int txtLiczba=0x7f080106;
     public static final int txtNazwa=0x7f080107;
-    public static final int txtOpis=0x7f080108;
-    public static final int txtSearch=0x7f080109;
-    public static final int uniform=0x7f08010a;
-    public static final int unlabeled=0x7f08010b;
-    public static final int up=0x7f08010c;
-    public static final int useLogo=0x7f08010d;
-    public static final int view_offset_helper=0x7f08010e;
-    public static final int visible=0x7f08010f;
-    public static final int withText=0x7f080110;
-    public static final int wrap=0x7f080111;
-    public static final int wrap_content=0x7f080112;
+    public static final int txtSearch=0x7f080108;
+    public static final int uniform=0x7f080109;
+    public static final int unlabeled=0x7f08010a;
+    public static final int up=0x7f08010b;
+    public static final int useLogo=0x7f08010c;
+    public static final int view_offset_helper=0x7f08010d;
+    public static final int visible=0x7f08010e;
+    public static final int withText=0x7f08010f;
+    public static final int wrap=0x7f080110;
+    public static final int wrap_content=0x7f080111;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f090000;

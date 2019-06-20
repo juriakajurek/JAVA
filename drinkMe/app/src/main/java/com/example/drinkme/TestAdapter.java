@@ -71,7 +71,7 @@ public class TestAdapter {
     }
 
     public Cursor getProducts(){
-            Cursor mCur = mDb.rawQuery("SELECT * FROM Produkt WHERE Nazwa='"+search+"'",null);
+            Cursor mCur = mDb.rawQuery("SELECT * FROM Produkt WHERE Nazwa LIKE '"+search+"%'",null);
             return mCur;
 
     }

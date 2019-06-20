@@ -1298,7 +1298,6 @@ id txtCena
 id txtId
 id txtLiczba
 id txtNazwa
-id txtOpis
 id txtSearch
 id uniform
 id unlabeled
